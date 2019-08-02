@@ -21,7 +21,7 @@ module OmniAuth
       info do
         {}.tap do |result|
           if parsed_id_token
-            options[:info_fields].each do |field|
+            options[:info_fields].split(',').each do |field|
               result[field] = parsed_id_token[field.to_s]
             end
           end
